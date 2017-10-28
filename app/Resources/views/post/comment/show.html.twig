@@ -1,0 +1,12 @@
+{% for comment in comments %}
+    <div class="media">
+        <p class="pull-right">
+            <small>{{ comment.created|date('Y-m-d H:i:s') }}</small>
+        </p>
+        <div class="media-body">
+
+            <h4 class="media-heading user_name">{{ comment.author }}</h4>
+            {{ comment.content }}
+        </div>
+    </div>
+{% endfor %}

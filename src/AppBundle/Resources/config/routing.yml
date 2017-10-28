@@ -1,0 +1,6 @@
+app_category:
+    resource: "@AppBundle/Resources/config/routing/category.yml"
+    prefix:   /
+app_post:
+    resource: "@AppBundle/Resources/config/routing/post.yml"
+    prefix:   /post

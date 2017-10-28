@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Post creation</h1>
+    <p>Category "{{ category.name }}"</p>
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name,{'attr':{'class':'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.content) }}
+        {{ form_errors(form.content) }}
+        {{ form_widget(form.content,{'attr':{'class':'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.file) }}
+        {{ form_errors(form.file) }}
+        {{ form_widget(form.file,{'attr':{'class':'form-control'} }) }}
+    </div>
+
+    <input type="submit" value="Create"/>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('app_post_index',{ 'id' :category.id }) }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Category creation</h1>
+
+    {{ form_start(form) }}
+    {% include 'category/_form.html.twig' %}
+    <input class="btn btn-primary" type="submit" value="Create"/>
+    {{ form_end(form) }}
+
+    <ul class="list-unstyled">
+        <li>
+            <a class="btn btn-default" href="{{ path('app_category_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Category edit</h1>
+
+    {{ form_start(form) }}
+    {% include 'category/_form.html.twig' %}
+    <input class="btn btn-primary" type="submit" value="Edit"/>
+    {{ form_end(form) }}
+
+    <ul class="list-unstyled">
+        <li>
+            <a class="btn btn-default" href="{{ path('app_category_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

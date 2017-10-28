@@ -1,0 +1,39 @@
+{#{% extends 'base.html.twig' %}#}
+
+{% block body %}
+    <h1>Posts list</h1>
+    <ul class="list-unstyled">
+        <li>
+            <a class="btn btn-info" href="{{ path('app_post_new',{'categoryId':categoryId}) }}">Create a new post</a>
+        </li>
+    </ul>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Content</th>
+            <th>Created_at</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.name }}</td>
+                <td>{{ post.content }}</td>
+                <td>{% if post.createdat %}{{ post.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="btn btn-primary" href="{{ path('app_post_show', { 'id': post.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-success" href="{{ path('app_post_edit', { 'id': post.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

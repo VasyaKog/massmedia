@@ -1,0 +1,7 @@
+{{ form_start(form, { 'action': path('app_post_comment_create' , { 'post_id' : comment.post.id }), 'method': 'POST', 'attr': {'class': 'post-comment-form'} }) }}
+
+    {{ form_widget(form) }}
+<p>
+    <input type="submit" value="Submit">
+</p>
+{{ form_end(form) }}

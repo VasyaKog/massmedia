@@ -1,0 +1,12 @@
+app_post_comment_create:
+  path: /{post_id}/create
+  defaults: { _controller: AppBundle:PostComment:create }
+  requirements:
+    methods:  POST
+    post_id: \d+
+app_post_comment_:
+  path: /{post_id}/create
+  defaults: { _controller: AppBundle:PostComment:create }
+  requirements:
+    methods:  POST
+    post_id: \d+

@@ -1,0 +1,27 @@
+app_post_comment:
+  resource: "@AppBundle/Resources/config/routing/postcomment.yml"
+  prefix:   /comment
+app_post_index:
+    path:     /{id}/
+    defaults: { _controller: "AppBundle:Post:index" }
+    methods:  GET
+
+app_post_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Post:show" }
+    methods:  GET
+
+app_post_new:
+    path:     /{categoryId}/new
+    defaults: { _controller: "AppBundle:Post:new" }
+    methods:  [GET, POST]
+
+app_post_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Post:edit" }
+    methods:  [GET, POST]
+
+app_post_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Post:delete" }
+    methods:  DELETE

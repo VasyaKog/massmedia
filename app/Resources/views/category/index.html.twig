@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categories list</h1>
+    <ul class="list-inline">
+        <li>
+            <a class="btn btn-info" href="{{ path('app_category_new') }}">Create a new category</a>
+        </li>
+    </ul>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>{{ category.description }}</td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="btn btn-primary" href="{{ path('app_category_show', { 'id': category.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-success" href="{{ path('app_category_show', { 'id': category.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

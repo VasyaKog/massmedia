@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Post</h1>
+    <ul class="list-inline">
+        <li>
+            <a class="btn btn-default" href="{{ path('app_category_show',{'id':post.category.id}) }}">Back to the
+                category</a>
+        </li>
+        <li>
+            <a class="btn btn-success" href="{{ path('app_post_edit', { 'id': post.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Category</th>
+            <td>{{ post.category.name }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ post.name }}</td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td>{{ post.content }}</td>
+        </tr>
+        <tr>
+            <th>File</th>
+            <td><a href="{{ asset('uploads/post/' ~ post.fileName) }}">Download File</a></td>
+        </tr>
+        <tr>
+            <th>Created_at</th>
+            <td>{% if post.createdat %}{{ post.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Comments</h2>
+    <div class="comments">
+        <div class="form">
+            {{ render(controller('AppBundle:PostComment:new',{ 'post_id': post.id })) }}
+        </div>
+        <div class="comments-list">
+            {{ render(controller('AppBundle:PostComment:show',{'post_id': post.id})) }}
+        </div>
+    </div>
+
+
+{% endblock %}
