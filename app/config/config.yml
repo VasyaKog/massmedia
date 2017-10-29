@@ -26,7 +26,7 @@ framework:
     trusted_hosts: ~
     session:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id: AppBundle\Service\PdoSessionHandler
+        handler_id: AppBundle\Service\DoctrineSessionHandler
     fragments: ~
     http_method_override: true
     assets: ~

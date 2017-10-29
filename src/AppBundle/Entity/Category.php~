@@ -65,6 +65,11 @@ class Category
      */
     protected $posts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="PostComment", mappedBy="post")
+     */
+    protected $comments;
+
 
     /**
      * Get id

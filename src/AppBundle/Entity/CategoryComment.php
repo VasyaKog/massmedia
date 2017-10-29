@@ -10,13 +10,12 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PostCommentRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CategoryCommentRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class PostComment
+class CategoryComment
 {
     /**
      * @ORM\Id
@@ -27,10 +26,6 @@ class PostComment
 
     /**
      * @ORM\Column(type="string")
-     *
-     * @Assert\Regex(
-     *     pattern="/[A-Z][A-Za-z]{0,}\s+[A-Z][A-Za-z]{0,}/",htmlPattern="[A-Z]+[A-Za-z]{0,}\s+[A-Z]+[A-Za-z]{0,}",message="Field must be contain from two words"
-     * )
      */
     protected $author;
 
@@ -40,10 +35,10 @@ class PostComment
     protected $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
-     * @ORM\JoinColumn(name="post_id", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="comments")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id",onDelete="CASCADE")
      */
-    protected $post;
+    protected $category;
 
     /**
      * @ORM\Column(type="datetime")
@@ -138,27 +133,28 @@ class PostComment
         return $this->created;
     }
 
+
     /**
-     * Set post
+     * Set category
      *
-     * @param \AppBundle\Entity\Post $post
+     * @param \AppBundle\Entity\Category $category
      *
-     * @return PostComment
+     * @return CategoryComment
      */
-    public function setPost(\AppBundle\Entity\Post $post = null)
+    public function setCategory(\AppBundle\Entity\Category $category = null)
     {
-        $this->post = $post;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get post
+     * Get category
      *
-     * @return \AppBundle\Entity\Post
+     * @return \AppBundle\Entity\Category
      */
-    public function getPost()
+    public function getCategory()
     {
-        return $this->post;
+        return $this->category;
     }
 }

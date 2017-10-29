@@ -1,3 +1,6 @@
+app_post_comment:
+  resource: "@AppBundle/Resources/config/routing/categorycomment.yml"
+  prefix:   /comment
 app_category_index:
     path:     /
     defaults: { _controller: "AppBundle:Category:index" }

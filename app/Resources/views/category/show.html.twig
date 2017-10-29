@@ -27,7 +27,19 @@
         </tr>
         </tbody>
     </table>
-    {{ render(controller('AppBundle:Post:index',{ 'categoryId': category.id })) }}
+    <h2>Posts</h2>
+    <div class="posts">
+        {{ render(controller('AppBundle:Post:index',{ 'categoryId': category.id })) }}
+    </div>
+    <h2>Comments</h2>
+    <div class="comments">
+        <div class="form">
+            {{ render(controller('AppBundle:CategoryComment:new',{ 'category_id': category.id })) }}
+        </div>
+        <div class="comments-list">
+            {{ render(controller('AppBundle:CategoryComment:show',{'category_id': category.id})) }}
+        </div>
+    </div>
 
 
 {% endblock %}

@@ -65,6 +65,11 @@ class Category
      */
     protected $posts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="PostComment", mappedBy="post")
+     */
+    protected $comments;
+
 
     /**
      * Get id
@@ -118,5 +123,39 @@ class Category
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Entity\PostComment $comment
+     *
+     * @return Category
+     */
+    public function addComment(\AppBundle\Entity\PostComment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Entity\PostComment $comment
+     */
+    public function removeComment(\AppBundle\Entity\PostComment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

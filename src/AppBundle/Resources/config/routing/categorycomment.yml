@@ -1,0 +1,6 @@
+app_category_comment_create:
+  path: /{category_id}/create
+  defaults: { _controller: AppBundle:CategoryComment:create }
+  requirements:
+    methods:  POST
+    category_id: \d+

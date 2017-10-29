@@ -1,4 +1,5 @@
-{{ form_start(form, { 'action': path('app_post_comment_create' , { 'post_id' : comment.post.id }), 'method': 'POST', 'attr': {'class': 'comment-form'} }) }}
+{{ form_start(form, { 'action': path('app_category_comment_create' , { 'category_id' : comment.category.id }), 'method': 'POST', 'attr': {'class': 'comment-form'} }) }}
+
 <div class="form-group">
     {{ form_label(form.author) }}
     <small>must contain two words, both with a capital letter</small>

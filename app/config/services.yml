@@ -36,8 +36,5 @@ services:
     AppBundle\Service\FileUploader:
           arguments:
               $targetDir: '%post_file_directory%'
-    AppBundle\Service\PdoSessionHandler:
+    AppBundle\Service\DoctirneSessionHandler:
             public:    false
-            arguments:
-                - 'mysql:host=%database_host%;port=%database_port%;dbname=%database_name%'
-                - { db_username: '%database_user%', db_password: '%database_password%' }

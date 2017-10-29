@@ -21,12 +21,12 @@
         {{ form_widget(form.file,{'attr':{'class':'form-control'} }) }}
     </div>
 
-    <input type="submit" value="Create"/>
+    <input class="btn btn-primary" type="submit" value="Create"/>
     {{ form_end(form) }}
 
-    <ul>
+    <ul class="list-unstyled">
         <li>
-            <a href="{{ path('app_post_index',{ 'id' :category.id }) }}">Back to the list</a>
+            <a class="btn btn-default" href="{{ path('app_category_show',{ 'id' :category.id }) }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}
