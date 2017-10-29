@@ -1,20 +1,20 @@
-var gulp   = require('gulp');
-var sass   = require('gulp-sass');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
 var concat = require('gulp-concat');
-var watch  = require('gulp-watch');
+var watch = require('gulp-watch');
 
 gulp.task('fonts', function () {
     return gulp.src('node_modules/bootstrap/fonts/*')
         .pipe(gulp.dest('web/fonts'))
 });
 
-gulp.task('sass', function(){
+gulp.task('sass', function () {
     gulp.src('src/AppBundle/Resources/public/sass/style.scss')
         .pipe(sass())
         .pipe(gulp.dest('web/css'));
 });
 
-gulp.task('scripts', function(){
+gulp.task('scripts', function () {
     var scripts = [
         // Dist
         'node_modules/jquery/dist/jquery.min.js',
@@ -28,12 +28,14 @@ gulp.task('scripts', function(){
         .pipe(gulp.dest('web/js'));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch('src/AppBundle/Resources/public/js/**/*', ['scripts']);
     gulp.watch('src/AppBundle/Resources/public/sass/**/*', ['sass']);
 });
 
 gulp.task('default', [
     'fonts',
+    'sass',
+    'scripts',
     'watch'
 ]);

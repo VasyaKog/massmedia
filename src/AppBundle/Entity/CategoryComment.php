@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CategoryCommentRepository")
@@ -26,6 +27,9 @@ class CategoryComment
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Regex(
+     *     pattern="/[A-Z][A-Za-z]{0,}\s+[A-Z][A-Za-z]{0,}/",htmlPattern="[A-Z]+[A-Za-z]{0,}\s+[A-Z]+[A-Za-z]{0,}",message="Field must be contain from two words"
+     * )
      */
     protected $author;
 
